@@ -1,0 +1,33 @@
+{
+  "name": "cpp-util",
+  "version": "1.0.0",
+  "description": "Miscellaneous C/C++ compilation/checking utility functions.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib/index.js",
+    "lib/index.d.ts",
+    "lib/errors/compilerNotFound.js",
+    "lib/errors/compilerNotFound.d.ts",
+    "lib/utils/executionHelpers.js",
+    "lib/utils/executionHelpers.d.ts",
+    "lib/utils/validationHelpers.js",
+    "lib/utils/validationHelpers.d.ts"
+  ],
+  "scripts": {
+    "lint": "eslint lib",
+    "lint:log": "eslint lib > lint.log",
+    "lint:fix": "eslint --fix lib",
+    "generate-ts": "npx -p typescript tsc index.js --declaration --allowJs --emitDeclarationOnly --outDir ./",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}
