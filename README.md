@@ -1,4 +1,37 @@
-const cppUtils = require('../index');
+# cpp-utils
+[![npm version](https://badge.fury.io/js/cpp-utils.svg)](https://badge.fury.io/js/cpp-utils)
+![Tests](https://github.com/synthetic-borealis/cpp-utils.js/actions/workflows/test.yml/badge.svg)
+[![GitHub license](https://img.shields.io/github/license/synthetic-borealis/cpp-utils.js)](https://github.com/synthetic-borealis/cpp-utils.js/blob/main/LICENSE)
+
+A collection of utility functions for C/C++ compilation from Node.js.
+
+## Requirements
+
+- Either gcc (preferably with g++) or clang must bein your system path.
+- Node.js 15.x or above (testing fails with older versions).
+
+## Installation
+
+Run `npm i cpp-utils`.
+
+## Overview
+
+### Compiler Detection
+
+Compilers can be detected by calling ```checkFor[COMPILER]()``` where ```[COMPILER]``` is either Gcc, GPlus (g++), Clang, or ClangPlus (clang++), for example: ```checkForGcc()```. You can also use ```checkForCompiler(compilerName)``` to detect supported compilers where the compiler executable name differs from the default, for example: ```checkForCompiler('x86_64-w64-mingw32-gcc')```.
+
+Additionally, ```detectAllCompilers()``` will look form supported compilers and return an array of objects, each with a name of a compiler that was found and the version that was detected.
+
+### Compilation
+
+Use ```compileWith[COMPILER](inputFile, outputFile, link)``` to compile a C/C++ source file. Use the ```link``` parameter to indicate whether you want the output to be linked or not (by default it is set to ```true```).
+
+## Examples
+
+### Example 1
+
+```javascript
+const cppUtils = require('cpp-utils');
 const fs = require('fs/promises');
 const process = require('process');
 
@@ -60,3 +93,4 @@ describe('Compilation tests', () => {
     ]);
   });
 });
+```

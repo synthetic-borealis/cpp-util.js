@@ -1,0 +1,22 @@
+declare const _exports: {
+    compileWith: typeof compilation.compileWith;
+    compileWithGcc: typeof compilation.compileWithGcc;
+    compileWithGPlus: typeof compilation.compileWithGPlus;
+    compileWithClang: typeof compilation.compileWithClang;
+    compileWithClangPlus: typeof compilation.compileWithClangPlus;
+    checkForCompiler: typeof compilerDetection.checkForCompiler;
+    checkForGcc: typeof compilerDetection.checkForGcc;
+    checkForGPlus: typeof compilerDetection.checkForGPlus;
+    checkForClang: typeof compilerDetection.checkForClang;
+    checkForClangPlus: typeof compilerDetection.checkForClangPlus;
+    detectAllCompilers: typeof compilerDetection.detectAllCompilers;
+    CompilerNotFoundError: typeof CompilerNotFoundError;
+    NoCompilerFoundError: typeof NoCompilerFoundError;
+    CompilationFailedError: typeof CompilationFailedError;
+};
+export = _exports;
+import compilation = require("./compilation");
+import compilerDetection = require("./compilerDetection");
+import CompilerNotFoundError = require("./errors/compilerNotFound");
+import NoCompilerFoundError = require("./errors/noCompilerFound");
+import CompilationFailedError = require("./errors/compilationFailed");
