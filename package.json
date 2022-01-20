@@ -3,6 +3,13 @@
   "description": "Miscellaneous C/C++ compilation/compiler detection utility functions.",
   "version": "1.0.0",
   "author": "Elhanan Flesch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synthetic-borealis/cpp-utils.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/synthetic-borealis/cpp-utils.js/issues"
+  },
   "license": "MIT",
   "keywords": [
     "C++",
