@@ -1,8 +1,15 @@
 {
   "name": "cpp-utils",
-  "description": "Miscellaneous C/C++ compilation/checking utility functions.",
-  "version": "0.1.0",
+  "description": "Miscellaneous C/C++ compilation/compiler detection utility functions.",
+  "version": "1.0.1",
   "author": "Elhanan Flesch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synthetic-borealis/cpp-utils.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/synthetic-borealis/cpp-utils.js/issues"
+  },
   "license": "MIT",
   "keywords": [
     "C++",
