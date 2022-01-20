@@ -1,23 +1,23 @@
-const cppUtil = require('../index');
+const cppUtils = require('../index');
 const fs = require('fs/promises');
 const process = require('process');
 
 describe('Compiler detection tests', () => {
   describe('detectAllCompilers', () => {
     it('Detects compilers', () => {
-      return expect(cppUtil.detectAllCompilers()).resolves.toBeDefined();
+      return expect(cppUtils.detectAllCompilers()).resolves.toBeDefined();
     });
   });
 
   describe('checkForCompiler', () => {
     it('Returns rejected promise when failing', () => {
-      return expect(cppUtil.checkForCompiler('lmfao')).rejects.toBeDefined();
+      return expect(cppUtils.checkForCompiler('lmfao')).rejects.toBeDefined();
     });
     it('Detects gcc', () => {
-      return expect(cppUtil.checkForGcc()).resolves.toBeDefined();
+      return expect(cppUtils.checkForGcc()).resolves.toBeDefined();
     });
     it('Detects clang', () => {
-      return expect(cppUtil.checkForClang()).resolves.toBeDefined();
+      return expect(cppUtils.checkForClang()).resolves.toBeDefined();
     });
   });
 });
@@ -44,11 +44,11 @@ describe('Compilation tests', () => {
   });
 
   test('C code compiles', () => {
-    return expect(cppUtil.compileWithGcc('test.c', `testC${exeExtension}`, true)).resolves.toBeDefined();
+    return expect(cppUtils.compileWithGcc('test.c', `testC${exeExtension}`, true)).resolves.toBeDefined();
   });
 
   test('C++ code compiles', () => {
-    return expect(cppUtil.compileWithGPlus('test.cpp', `testCPP${exeExtension}`, true)).resolves.toBeDefined();
+    return expect(cppUtils.compileWithGPlus('test.cpp', `testCPP${exeExtension}`, true)).resolves.toBeDefined();
   });
 
   afterAll(() => {
