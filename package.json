@@ -1,6 +1,6 @@
 {
   "name": "cpp-utils",
-  "description": "Miscellaneous C/C++ compilation/checking utility functions.",
+  "description": "Miscellaneous C/C++ compilation/compiler detection utility functions.",
   "version": "0.1.0",
   "author": "Elhanan Flesch",
   "license": "MIT",
