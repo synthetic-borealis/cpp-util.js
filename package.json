@@ -19,22 +19,9 @@
   "files": [
     "index.js",
     "index.d.ts",
-    "lib/index.js",
-    "lib/index.d.ts",
-    "lib/compilerDetection.js",
-    "lib/compilerDetection.d.ts",
-    "lib/compilation.js",
-    "lib/compilation.d.ts",
-    "lib/errors/compilerNotFound.js",
-    "lib/errors/compilerNotFound.d.ts",
-    "lib/errors/noCompilerFound.js",
-    "lib/errors/noCompilerFound.d.ts",
-    "lib/errors/compilationFailed.js",
-    "lib/errors/compilationFailed.d.ts",
-    "lib/utils/executionHelpers.js",
-    "lib/utils/executionHelpers.d.ts",
-    "lib/utils/validationHelpers.js",
-    "lib/utils/validationHelpers.d.ts"
+    "lib/",
+    "lib/errors/",
+    "lib/utils/"
   ],
   "scripts": {
     "lint": "eslint lib",
