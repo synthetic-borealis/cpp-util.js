@@ -20,16 +20,21 @@
     "index.js",
     "index.d.ts",
     "lib/",
-    "lib/errors/",
-    "lib/utils/"
+    "docs/"
   ],
   "scripts": {
     "lint": "eslint lib",
     "lint:log": "eslint lib > lint.log",
     "lint:fix": "eslint --fix lib",
-    "clean": "del-cli **/*.d.ts !node_modules/**/*",
+    "clean:ts-def": "del-cli **/*.d.ts !node_modules/**/*",
+    "clean:docs": "del-cli docs/*.md",
+    "docs": "jsdoc2md index.js lib/**/*.js > docs/API.md",
     "generate-ts": "npx -p typescript tsc index.js --declaration --allowJs --emitDeclarationOnly --outDir ./",
-    "test": "jest"
+    "test": "jest",
+    "prepack": "npm run generate-ts",
+    "postpack": "npm run clean:ts-def",
+    "prepublish": "npm run generate-ts",
+    "postpublish": "npm run clean:ts-def"
   },
   "devDependencies": {
     "del-cli": "^5.0.0",
@@ -38,6 +43,6 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.8.5",
     "jest": "^27.5.1",
-    "minimist": "^1.2.6"
+    "jsdoc-to-markdown": "^7.1.1"
   }
 }
