@@ -1,9 +1,19 @@
 # cpp-utils
+
 [![npm version](https://badge.fury.io/js/cpp-utils.svg)](https://badge.fury.io/js/cpp-utils)
 ![Tests](https://github.com/synthetic-borealis/cpp-utils.js/actions/workflows/test.yml/badge.svg)
 [![GitHub license](https://img.shields.io/github/license/synthetic-borealis/cpp-utils.js)](https://github.com/synthetic-borealis/cpp-utils.js/blob/main/LICENSE)
 
 A collection of utility functions for C/C++ compilation from Node.js.
+
+## Contents
+
+1. [Requirements](#requirements)
+2. [Installation](#installation)
+3. [Usage](#usage)
+   1. [Compiler Detection](#compiler-detection)
+   2. [Compilation](#compilation)
+4. [Examples](#examples)
 
 ## Requirements
 
@@ -14,17 +24,24 @@ A collection of utility functions for C/C++ compilation from Node.js.
 
 Run `npm i cpp-utils`.
 
-## Overview
+## Usage
+
+The documentation can be found [here](./docs/API.md).
 
 ### Compiler Detection
 
-Compilers can be detected by calling ```checkFor[COMPILER]()``` where ```[COMPILER]``` is either Gcc, GPlus (g++), Clang, or ClangPlus (clang++), for example: ```checkForGcc()```. You can also use ```checkForCompiler(compilerName)``` to detect supported compilers where the compiler executable name differs from the default, for example: ```checkForCompiler('x86_64-w64-mingw32-gcc')```.
+Compilers can be detected by calling ```checkFor[COMPILER]()``` where ```[COMPILER]``` is either Gcc, GPlus (g++),
+Clang, or ClangPlus (clang++), for example: ```checkForGcc()```. You can also use ```checkForCompiler(compilerName)```
+to detect supported compilers where the compiler executable name differs from the default, for
+example: ```checkForCompiler('x86_64-w64-mingw32-gcc')```.
 
-Additionally, ```detectAllCompilers()``` will look form supported compilers and return an array of objects, each with a name of a compiler that was found and the version that was detected.
+Additionally, ```detectAllCompilers()``` will look form supported compilers and return an array of objects, each with a
+name of a compiler that was found and the version that was detected.
 
 ### Compilation
 
-Use ```compileWith[COMPILER](inputFile, outputFile, link)``` to compile a C/C++ source file. Use the ```link``` parameter to indicate whether you want the output to be linked or not (by default it is set to ```true```).
+Use ```compileWith[COMPILER](inputFile, outputFile, link)``` to compile a C/C++ source file. Use the ```link```
+parameter to indicate whether you want the output to be linked or not (by default it is set to ```true```).
 
 ## Examples
 
