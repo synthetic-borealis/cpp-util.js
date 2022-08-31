@@ -1,8 +1,9 @@
 # cpp-utils
 
+[![GitHub license](https://img.shields.io/github/license/synthetic-borealis/cpp-utils.js)](https://github.com/synthetic-borealis/cpp-utils.js/blob/main/LICENSE)
 [![npm version](https://badge.fury.io/js/cpp-utils.svg)](https://badge.fury.io/js/cpp-utils)
 ![Unit Tests](https://github.com/synthetic-borealis/cpp-utils.js/actions/workflows/test.yml/badge.svg)
-[![GitHub license](https://img.shields.io/github/license/synthetic-borealis/cpp-utils.js)](https://github.com/synthetic-borealis/cpp-utils.js/blob/main/LICENSE)
+[![codecov](https://codecov.io/gh/synthetic-borealis/cpp-utils.js/branch/main/graph/badge.svg?token=S03AAT7L2V)](https://codecov.io/gh/synthetic-borealis/cpp-utils.js)
 
 A collection of utility functions for C/C++ compilation from Node.js.
 
@@ -18,11 +19,11 @@ A collection of utility functions for C/C++ compilation from Node.js.
 ## Requirements
 
 - Either gcc (preferably with g++) or clang must be in your system path.
-- Node.js 15.x or above (testing fails with older versions).
+- Node.js 16.x or above.
 
 ## Installation
 
-Run `npm i cpp-utils`.
+Run `yarn add cpp-utils` or `npm i cpp-utils`.
 
 ## Usage
 
@@ -34,9 +35,6 @@ Compilers can be detected by calling ```checkFor[COMPILER]()``` where ```[COMPIL
 Clang, or ClangPlus (clang++), for example: ```checkForGcc()```. You can also use ```checkForCompiler(compilerName)```
 to detect supported compilers where the compiler executable name differs from the default, for
 example: ```checkForCompiler('x86_64-w64-mingw32-gcc')```.
-
-Additionally, ```detectAllCompilers()``` will look form supported compilers and return an array of objects, each with a
-name of a compiler that was found and the version that was detected.
 
 ### Compilation
 
