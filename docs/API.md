@@ -5,14 +5,12 @@
 <dd></dd>
 <dt><a href="#CompilerNotFoundError">CompilerNotFoundError</a></dt>
 <dd></dd>
-<dt><a href="#NoCompilerFoundError">NoCompilerFoundError</a></dt>
-<dd></dd>
 </dl>
 
 ## Functions
 
 <dl>
-<dt><a href="#compileWith">compileWith(compilerName, inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;inputFile&gt;</code></dt>
+<dt><a href="#compileWith">compileWith(compilerName, inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;{inputFile: string}&gt;</code></dt>
 <dd><p>Compiles C/C++ source.</p>
 </dd>
 <dt><a href="#compileWithGcc">compileWithGcc(inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;inputFile&gt;</code></dt>
@@ -42,8 +40,6 @@
 <dt><a href="#checkForClangPlus">checkForClangPlus()</a> ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code></dt>
 <dd><p>Checks whether clang++ is in the system path (i.e. PATH).</p>
 </dd>
-<dt><a href="#detectAllCompilers">detectAllCompilers()</a> ⇒ <code>Promise.&lt;Array.&lt;{compiler: string, version: string}&gt;&gt;</code></dt>
-<dd></dd>
 </dl>
 
 <a name="CompilationFailedError"></a>
@@ -75,28 +71,19 @@ CompilerNotFound Error constructor
 | --- | --- | --- |
 | compilerName | <code>string</code> | The name of the compiler that wasn't found. |
 
-<a name="NoCompilerFoundError"></a>
-
-## NoCompilerFoundError
-**Kind**: global class  
-<a name="new_NoCompilerFoundError_new"></a>
-
-### new NoCompilerFoundError()
-NoCompilerFound Error constructor
-
 <a name="compileWith"></a>
 
-## compileWith(compilerName, inputFile, outputFile, link) ⇒ <code>Promise.&lt;inputFile&gt;</code>
+## compileWith(compilerName, inputFile, outputFile, link) ⇒ <code>Promise.&lt;{inputFile: string}&gt;</code>
 Compiles C/C++ source.
 
 **Kind**: global function  
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| compilerName | <code>string</code> |  | Compiler to use. |
-| inputFile | <code>string</code> |  | Source file to compile. |
-| outputFile | <code>string</code> |  | Output file name. |
-| link | <code>boolean</code> | <code>true</code> | Should result be linked. |
+| Param | Type | Description |
+| --- | --- | --- |
+| compilerName | <code>string</code> | Compiler to use. |
+| inputFile | <code>string</code> | Source file to compile. |
+| outputFile | <code>string</code> | Output file name. |
+| link | <code>boolean</code> | Should result be linked. |
 
 <a name="compileWithGcc"></a>
 
@@ -184,8 +171,4 @@ Checks whether clang is in the system path (i.e. PATH).
 ## checkForClangPlus() ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code>
 Checks whether clang++ is in the system path (i.e. PATH).
 
-**Kind**: global function  
-<a name="detectAllCompilers"></a>
-
-## detectAllCompilers() ⇒ <code>Promise.&lt;Array.&lt;{compiler: string, version: string}&gt;&gt;</code>
 **Kind**: global function  
