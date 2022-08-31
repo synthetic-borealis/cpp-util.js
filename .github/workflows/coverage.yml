@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Coverage
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - '__tests__/**/*.js'
       - 'package.json'
       - '.github/workflows/test.yml'
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -17,17 +17,17 @@ jobs:
 
     runs-on: ubuntu-22.04
 
-    strategy:
-      matrix:
-        node-version: [v16.x, v18.x]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: mskelton/setup-yarn@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 'v16.x'
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run tests
-        run: yarn test
+        run: yarn coverage
+      - name: Send coverage info to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/cobertura-coverage.xml

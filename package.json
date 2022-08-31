@@ -15,34 +15,34 @@
     "C++",
     "C"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
   "files": [
-    "index.js",
-    "index.d.ts",
     "lib/",
+    "types/",
     "docs/"
   ],
   "scripts": {
-    "lint": "eslint lib",
-    "lint:log": "eslint lib > lint.log",
-    "lint:fix": "eslint --fix lib",
+    "lint": "eslint lib/**/*.js __tests__/**/*.js",
     "clean:ts-def": "del-cli **/*.d.ts !node_modules/**/*",
-    "clean:docs": "del-cli docs/*.md",
-    "docs": "jsdoc2md index.js lib/**/*.js > docs/API.md",
-    "generate-ts": "npx -p typescript tsc index.js --declaration --allowJs --emitDeclarationOnly --outDir ./",
+    "docs": "node scripts/build-docs.js",
+    "build:ts-def": "tsc lib/index.js --declaration --allowJs --emitDeclarationOnly --outDir ./types",
     "test": "jest",
-    "prepack": "npm run generate-ts",
-    "postpack": "npm run clean:ts-def",
-    "prepublish": "npm run generate-ts",
-    "postpublish": "npm run clean:ts-def"
+    "coverage": "jest --coverage",
+    "prepack": "yarn build:ts-def",
+    "postpack": "yarn clean:ts-def",
+    "prepublish": "in-publish && yarn generate-ts || not-in-publish",
+    "postpublish": "yarn clean:ts-def"
   },
   "devDependencies": {
     "del-cli": "^5.0.0",
     "eslint": "^8.12.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jest": "^26.8.5",
-    "jest": "^27.5.1",
-    "jsdoc-to-markdown": "^7.1.1"
+    "eslint-plugin-jest": "^27.0.1",
+    "in-publish": "^2.0.1",
+    "jest": "^29.0.1",
+    "jsdoc-to-markdown": "^7.1.1",
+    "typescript": "^4.8.2"
   }
 }

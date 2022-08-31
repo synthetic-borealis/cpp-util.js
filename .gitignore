@@ -1,5 +1,10 @@
 node_modules
+.idea
+*.o
+*.exe
 *.log
+/*.c
+/*.cpp
 coverage
 coverage.lcov
 .DS_Store

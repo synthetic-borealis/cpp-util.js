@@ -1,7 +1,7 @@
 # cpp-utils
 
 [![npm version](https://badge.fury.io/js/cpp-utils.svg)](https://badge.fury.io/js/cpp-utils)
-![Tests](https://github.com/synthetic-borealis/cpp-utils.js/actions/workflows/test.yml/badge.svg)
+![Unit Tests](https://github.com/synthetic-borealis/cpp-utils.js/actions/workflows/test.yml/badge.svg)
 [![GitHub license](https://img.shields.io/github/license/synthetic-borealis/cpp-utils.js)](https://github.com/synthetic-borealis/cpp-utils.js/blob/main/LICENSE)
 
 A collection of utility functions for C/C++ compilation from Node.js.
