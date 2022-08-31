@@ -1,5 +1,4 @@
 name: Unit Tests
-
 on:
   push:
     paths:
@@ -11,23 +10,19 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   test:
-
     runs-on: ubuntu-22.04
-
     strategy:
       matrix:
         node-version: [v16.x, v18.x]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }} with Yarn
         uses: mskelton/setup-yarn@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: yarn install --immutable
+#      - name: Install dependencies
+#        run: yarn install --immutable
       - name: Run tests
         run: yarn test
