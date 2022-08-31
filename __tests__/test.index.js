@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 const process = require('process');
-const cppUtils = require('../index');
+const cppUtils = require('../lib');
 
 describe('Compiler detection tests', () => {
   describe('detectAllCompilers', () => {
