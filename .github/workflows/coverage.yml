@@ -1,5 +1,4 @@
 name: Coverage
-
 on:
   push:
     paths:
@@ -11,20 +10,17 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   test:
-
     runs-on: ubuntu-22.04
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: mskelton/setup-yarn@v1
         with:
           node-version: 'v16.x'
-      - name: Install dependencies
-        run: yarn install --immutable
+#      - name: Install dependencies
+#        run: yarn install --immutable
       - name: Run tests
         run: yarn coverage
       - name: Send coverage info to Codecov
