@@ -27,10 +27,6 @@ jobs:
         uses: mskelton/setup-yarn@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Clang
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y clang
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run tests

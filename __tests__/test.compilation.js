@@ -15,38 +15,31 @@ const exeExtension = process.platform === 'win32' ? '.exe' : '';
 const exeFile = `hello${exeExtension}`;
 
 describe('Compilation', () => {
-  it('Throws CompilationFailedError when compilation fails', async () => {
-    await expect(compileWithGcc(badSyntaxFile, errorObjectFile))
-      .rejects.toBeInstanceOf(CompilationFailedError);
-  });
+  it(
+    'Throws CompilationFailedError when compilation fails',
+    () => expect(compileWithGcc(badSyntaxFile, errorObjectFile))
+      .rejects.toBeInstanceOf(CompilationFailedError),
+  );
   describe('With linking', () => {
     afterEach(() => fs.unlink(exeFile));
-    test('With gcc', async () => {
-      await expect(compileWithGcc(helloFile, exeFile)).resolves.toBeDefined();
-    });
-    test('With g++', async () => {
-      await expect(compileWithGPlus(helloFile, exeFile)).resolves.toBeDefined();
-    });
-    test('With clang', async () => {
-      await expect(compileWithClang(helloFile, exeFile)).resolves.toBeDefined();
-    });
-    test('With clang++', async () => {
-      await expect(compileWithClangPlus(helloFile, exeFile)).resolves.toBeDefined();
-    });
+    test('With gcc', () => expect(compileWithGcc(helloFile, exeFile))
+      .resolves.toBeDefined());
+    test('With g++', () => expect(compileWithGPlus(helloFile, exeFile))
+      .resolves.toBeDefined());
+    test('With clang', () => expect(compileWithClang(helloFile, exeFile))
+      .resolves.toBeDefined());
+    test('With clang++', () => expect(compileWithClangPlus(helloFile, exeFile))
+      .resolves.toBeDefined());
   });
   describe('Without linking', () => {
     afterEach(() => fs.unlink(objectFile));
-    test('With gcc', async () => {
-      await expect(compileWithGcc(helloFile, objectFile, false)).resolves.toBeDefined();
-    });
-    test('With g++', async () => {
-      await expect(compileWithGPlus(helloFile, objectFile, false)).resolves.toBeDefined();
-    });
-    test('With clang', async () => {
-      await expect(compileWithClang(helloFile, objectFile, false)).resolves.toBeDefined();
-    });
-    test('With clang++', async () => {
-      await expect(compileWithClangPlus(helloFile, objectFile, false)).resolves.toBeDefined();
-    });
+    test('With gcc', () => expect(compileWithGcc(helloFile, objectFile, false))
+      .resolves.toBeDefined());
+    test('With g++', () => expect(compileWithGPlus(helloFile, objectFile, false))
+      .resolves.toBeDefined());
+    test('With clang', () => expect(compileWithClang(helloFile, objectFile, false))
+      .resolves.toBeDefined());
+    test('With clang++', () => expect(compileWithClangPlus(helloFile, objectFile, false))
+      .resolves.toBeDefined());
   });
 });
