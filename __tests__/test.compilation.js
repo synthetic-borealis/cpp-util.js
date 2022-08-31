@@ -21,16 +21,15 @@ describe('Compilation', () => {
       .rejects.toBeInstanceOf(CompilationFailedError),
   );
   describe('With linking', () => {
-    beforeAll(() => jest.setTimeout(10000));
     afterEach(() => fs.unlink(exeFile));
     test('With gcc', () => expect(compileWithGcc(helloFile, exeFile))
-      .resolves.toBeDefined());
+      .resolves.toBeDefined(), 10000);
     test('With g++', () => expect(compileWithGPlus(helloFile, exeFile))
-      .resolves.toBeDefined());
+      .resolves.toBeDefined(), 10000);
     test('With clang', () => expect(compileWithClang(helloFile, exeFile))
-      .resolves.toBeDefined());
+      .resolves.toBeDefined(), 10000);
     test('With clang++', () => expect(compileWithClangPlus(helloFile, exeFile))
-      .resolves.toBeDefined());
+      .resolves.toBeDefined(), 10000);
   });
   describe('Without linking', () => {
     afterEach(() => fs.unlink(objectFile));
