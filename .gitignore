@@ -3,6 +3,8 @@ node_modules
 *.o
 *.exe
 *.log
+/*.c
+/*.cpp
 coverage
 coverage.lcov
 .DS_Store
