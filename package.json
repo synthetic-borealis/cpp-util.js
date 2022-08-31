@@ -31,7 +31,7 @@
     "coverage": "jest",
     "prepack": "yarn build:ts-def",
     "postpack": "yarn clean:ts-def",
-    "prepublish": "in-publish && yarn generate-ts || not-in-publish",
+    "prepublish": "in-publish && yarn build:ts-def || not-in-publish",
     "postpublish": "yarn clean:ts-def"
   },
   "devDependencies": {
