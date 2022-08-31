@@ -1,4 +1,7 @@
 node_modules
+.idea
+*.o
+*.exe
 *.log
 coverage
 coverage.lcov
