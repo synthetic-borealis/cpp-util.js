@@ -21,6 +21,7 @@ describe('Compilation', () => {
       .rejects.toBeInstanceOf(CompilationFailedError),
   );
   describe('With linking', () => {
+    beforeAll(() => jest.setTimeout(10000));
     afterEach(() => fs.unlink(exeFile));
     test('With gcc', () => expect(compileWithGcc(helloFile, exeFile))
       .resolves.toBeDefined());
