@@ -27,7 +27,7 @@
     "clean:ts-def": "del-cli **/*.d.ts !node_modules/**/*",
     "docs": "node scripts/build-docs.js",
     "build:ts-def": "tsc lib/index.js --declaration --allowJs --emitDeclarationOnly --outDir ./types",
-    "test": "jest",
+    "test": "jest --runInBand",
     "coverage": "jest --coverage",
     "prepack": "yarn build:ts-def",
     "postpack": "yarn clean:ts-def",
