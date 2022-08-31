@@ -28,7 +28,7 @@
     "docs": "node scripts/build-docs.js",
     "build:ts-def": "tsc lib/index.js --declaration --allowJs --emitDeclarationOnly --outDir ./types",
     "test": "jest --runInBand",
-    "coverage": "jest --coverage",
+    "coverage": "jest",
     "prepack": "yarn build:ts-def",
     "postpack": "yarn clean:ts-def",
     "prepublish": "in-publish && yarn generate-ts || not-in-publish",
