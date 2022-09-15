@@ -4,8 +4,10 @@ import isVersionString from './utils/isVersionString';
 
 /**
  * Checks whether a compiler is in the system path (i.e. PATH).
+ * @category Compiler Detection
  * @param {string} compilerName The compiler to look for.
  * @returns {Promise<{compiler: string, version: string}>}
+ * @throws {@link CompilerNotFoundError} if specified compiler can't be found.
  */
 export function checkForCompiler(
   compilerName: string,
@@ -28,7 +30,9 @@ export function checkForCompiler(
 
 /**
  * Checks whether gcc is in the system path (i.e. PATH).
+ * @category Compiler Detection
  * @returns {Promise<{compiler: string, version: string}>}
+ * @throws {@link CompilerNotFoundError} if gcc can't be found in the system path.
  */
 export function checkForGcc() {
   return checkForCompiler('gcc');
@@ -36,7 +40,9 @@ export function checkForGcc() {
 
 /**
  * Checks whether g++ is in the system path (i.e. PATH).
+ * @category Compiler Detection
  * @returns {Promise<{compiler: string, version: string}>}
+ * @throws {@link CompilerNotFoundError} if g++ can't be found in the system path.
  */
 export function checkForGPlus() {
   return checkForCompiler('g++');
@@ -44,7 +50,9 @@ export function checkForGPlus() {
 
 /**
  * Checks whether clang is in the system path (i.e. PATH).
+ * @category Compiler Detection
  * @returns {Promise<{compiler: string, version: string}>}
+ * @throws {@link CompilerNotFoundError} if clang can't be found in the system path.
  */
 export function checkForClang() {
   return checkForCompiler('clang');
@@ -52,7 +60,9 @@ export function checkForClang() {
 
 /**
  * Checks whether clang++ is in the system path (i.e. PATH).
+ * @category Compiler Detection
  * @returns {Promise<{compiler: string, version: string}>}
+ * @throws {@link CompilerNotFoundError} if clang++ can't be found in the system path.
  */
 export function checkForClangPlus() {
   return checkForCompiler('clang++');

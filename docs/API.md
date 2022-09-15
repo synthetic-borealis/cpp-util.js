@@ -9,112 +9,33 @@ cpp-utils
 - [CompilationFailedError](classes/CompilationFailedError.md)
 - [CompilerNotFoundError](classes/CompilerNotFoundError.md)
 
-### Functions
+### Compilation Functions
 
-- [checkForClang](API.md#checkforclang)
-- [checkForClangPlus](API.md#checkforclangplus)
-- [checkForCompiler](API.md#checkforcompiler)
-- [checkForGPlus](API.md#checkforgplus)
-- [checkForGcc](API.md#checkforgcc)
 - [compileWith](API.md#compilewith)
 - [compileWithClang](API.md#compilewithclang)
 - [compileWithClangPlus](API.md#compilewithclangplus)
 - [compileWithGPlus](API.md#compilewithgplus)
 - [compileWithGcc](API.md#compilewithgcc)
 
-## Functions
+### Compiler Detection Functions
 
-### checkForClang
+- [checkForClang](API.md#checkforclang)
+- [checkForClangPlus](API.md#checkforclangplus)
+- [checkForCompiler](API.md#checkforcompiler)
+- [checkForGPlus](API.md#checkforgplus)
+- [checkForGcc](API.md#checkforgcc)
 
-▸ **checkForClang**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-Checks whether clang is in the system path (i.e. PATH).
-
-#### Returns
-
-`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-#### Defined in
-
-[src/compilerDetection.ts:49](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilerDetection.ts#L49)
-
-___
-
-### checkForClangPlus
-
-▸ **checkForClangPlus**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-Checks whether clang++ is in the system path (i.e. PATH).
-
-#### Returns
-
-`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-#### Defined in
-
-[src/compilerDetection.ts:57](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilerDetection.ts#L57)
-
-___
-
-### checkForCompiler
-
-▸ **checkForCompiler**(`compilerName`): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-Checks whether a compiler is in the system path (i.e. PATH).
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `compilerName` | `string` | The compiler to look for. |
-
-#### Returns
-
-`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-#### Defined in
-
-[src/compilerDetection.ts:10](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilerDetection.ts#L10)
-
-___
-
-### checkForGPlus
-
-▸ **checkForGPlus**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-Checks whether g++ is in the system path (i.e. PATH).
-
-#### Returns
-
-`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-#### Defined in
-
-[src/compilerDetection.ts:41](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilerDetection.ts#L41)
-
-___
-
-### checkForGcc
-
-▸ **checkForGcc**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-Checks whether gcc is in the system path (i.e. PATH).
-
-#### Returns
-
-`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
-
-#### Defined in
-
-[src/compilerDetection.ts:33](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilerDetection.ts#L33)
-
-___
+## Compilation Functions
 
 ### compileWith
 
 ▸ **compileWith**(`compilerName`, `inputFile`, `outputFile`, `link`): `Promise`<{ `inputFile`: `string`  }\>
 
 Compiles C/C++ source.
+
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
 
 #### Parameters
 
@@ -131,7 +52,7 @@ Compiles C/C++ source.
 
 #### Defined in
 
-[src/compilation.ts:12](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilation.ts#L12)
+[src/compilation.ts:14](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L14)
 
 ___
 
@@ -141,6 +62,10 @@ ___
 
 Compiles C/C++ source using clang.
 
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
+
 #### Parameters
 
 | Name | Type | Default value | Description |
@@ -155,7 +80,7 @@ Compiles C/C++ source using clang.
 
 #### Defined in
 
-[src/compilation.ts:59](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilation.ts#L59)
+[src/compilation.ts:67](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L67)
 
 ___
 
@@ -165,6 +90,10 @@ ___
 
 Compiles C/C++ source using clang++.
 
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
+
 #### Parameters
 
 | Name | Type | Default value | Description |
@@ -179,7 +108,7 @@ Compiles C/C++ source using clang++.
 
 #### Defined in
 
-[src/compilation.ts:70](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilation.ts#L70)
+[src/compilation.ts:80](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L80)
 
 ___
 
@@ -189,6 +118,10 @@ ___
 
 Compiles C/C++ source using g++.
 
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
+
 #### Parameters
 
 | Name | Type | Default value | Description |
@@ -203,7 +136,7 @@ Compiles C/C++ source using g++.
 
 #### Defined in
 
-[src/compilation.ts:48](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilation.ts#L48)
+[src/compilation.ts:54](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L54)
 
 ___
 
@@ -213,6 +146,10 @@ ___
 
 Compiles C/C++ source using gcc.
 
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
+
 #### Parameters
 
 | Name | Type | Default value | Description |
@@ -227,4 +164,112 @@ Compiles C/C++ source using gcc.
 
 #### Defined in
 
-[src/compilation.ts:37](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/compilation.ts#L37)
+[src/compilation.ts:41](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L41)
+
+___
+
+## Compiler Detection Functions
+
+### checkForClang
+
+▸ **checkForClang**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether clang is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if clang can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:57](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L57)
+
+___
+
+### checkForClangPlus
+
+▸ **checkForClangPlus**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether clang++ is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if clang++ can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:67](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L67)
+
+___
+
+### checkForCompiler
+
+▸ **checkForCompiler**(`compilerName`): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether a compiler is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if specified compiler can't be found.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `compilerName` | `string` | The compiler to look for. |
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:12](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L12)
+
+___
+
+### checkForGPlus
+
+▸ **checkForGPlus**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether g++ is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if g++ can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:47](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L47)
+
+___
+
+### checkForGcc
+
+▸ **checkForGcc**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether gcc is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if gcc can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:37](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L37)

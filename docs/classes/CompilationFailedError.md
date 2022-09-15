@@ -47,7 +47,7 @@ Error.constructor
 
 #### Defined in
 
-[src/errors/compilationFailed.ts:7](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/errors/compilationFailed.ts#L7)
+[src/errors/compilationFailed.ts:7](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/errors/compilationFailed.ts#L7)
 
 ## Properties
 

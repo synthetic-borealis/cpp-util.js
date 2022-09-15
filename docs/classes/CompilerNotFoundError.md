@@ -46,7 +46,7 @@ Error.constructor
 
 #### Defined in
 
-[src/errors/compilerNotFound.ts:6](https://github.com/synthetic-borealis/cpp-utils.js/blob/e95f965/src/errors/compilerNotFound.ts#L6)
+[src/errors/compilerNotFound.ts:6](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/errors/compilerNotFound.ts#L6)
 
 ## Properties
 
