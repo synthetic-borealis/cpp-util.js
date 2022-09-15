@@ -19,10 +19,6 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "jest.config.ts",
-    "__tests__",
-    "node_modules",
-    ".idea",
     "types"
   ]
 }
