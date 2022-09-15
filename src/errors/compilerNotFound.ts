@@ -1,4 +1,4 @@
-class CompilerNotFoundError extends Error {
+export default class CompilerNotFoundError extends Error {
   /**
    * CompilerNotFound Error constructor
    * @param {string} compilerName The name of the compiler that wasn't found.
@@ -7,5 +7,3 @@ class CompilerNotFoundError extends Error {
     super(`Compiler ${compilerName} was not found`);
   }
 }
-
-module.exports = CompilerNotFoundError;

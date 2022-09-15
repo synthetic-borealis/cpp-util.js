@@ -1,14 +1,15 @@
-const childProcess = require('child_process');
-const CompilerNotFoundError = require('./errors/compilerNotFound');
-
-const { isVersionString } = require('./utils/validationHelpers');
+import * as childProcess from 'child_process';
+import CompilerNotFoundError from './errors/compilerNotFound';
+import isVersionString from './utils/isVersionString';
 
 /**
  * Checks whether a compiler is in the system path (i.e. PATH).
  * @param {string} compilerName The compiler to look for.
  * @returns {Promise<{compiler: string, version: string}>}
  */
-function checkForCompiler(compilerName) {
+export function checkForCompiler(
+  compilerName: string,
+): Promise<{ compiler: string, version: string }> {
   return new Promise((resolve, reject) => {
     childProcess.exec(`${compilerName} --version`, (error, stdout) => {
       if (error) {
@@ -28,7 +29,7 @@ function checkForCompiler(compilerName) {
  * Checks whether gcc is in the system path (i.e. PATH).
  * @returns {Promise<{compiler: string, version: string}>}
  */
-function checkForGcc() {
+export function checkForGcc() {
   return checkForCompiler('gcc');
 }
 
@@ -36,7 +37,7 @@ function checkForGcc() {
  * Checks whether g++ is in the system path (i.e. PATH).
  * @returns {Promise<{compiler: string, version: string}>}
  */
-function checkForGPlus() {
+export function checkForGPlus() {
   return checkForCompiler('g++');
 }
 
@@ -44,7 +45,7 @@ function checkForGPlus() {
  * Checks whether clang is in the system path (i.e. PATH).
  * @returns {Promise<{compiler: string, version: string}>}
  */
-function checkForClang() {
+export function checkForClang() {
   return checkForCompiler('clang');
 }
 
@@ -52,14 +53,6 @@ function checkForClang() {
  * Checks whether clang++ is in the system path (i.e. PATH).
  * @returns {Promise<{compiler: string, version: string}>}
  */
-function checkForClangPlus() {
+export function checkForClangPlus() {
   return checkForCompiler('clang++');
 }
-
-module.exports = {
-  checkForCompiler,
-  checkForGcc,
-  checkForGPlus,
-  checkForClang,
-  checkForClangPlus,
-};
