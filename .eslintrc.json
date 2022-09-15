@@ -7,6 +7,7 @@
     "airbnb-base",
     "airbnb-typescript/base",
     "eslint:recommended",
+    "plugin:jest/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "overrides": [

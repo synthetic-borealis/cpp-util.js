@@ -15,7 +15,7 @@ import {
   compileWithClangPlus,
 } from './compilation';
 
-export default {
+export {
   CompilerNotFoundError,
   CompilationFailedError,
   checkForCompiler,
