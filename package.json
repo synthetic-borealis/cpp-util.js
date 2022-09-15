@@ -24,6 +24,7 @@
   ],
   "scripts": {
     "lint": "eslint src/**/*.{ts,js}",
+    "format": "prettier --write src/**/*.{ts,js}",
     "clean": "rimraf ./lib ./types",
     "build": "tsc",
     "docs": "node scripts/build-docs.js",
@@ -46,6 +47,7 @@
     "in-publish": "^2.0.1",
     "jest": "^29.0.3",
     "jsdoc-to-markdown": "^7.1.1",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^29.0.1",
     "ts-node": "^10.9.1",

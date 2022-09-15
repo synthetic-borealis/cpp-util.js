@@ -9,7 +9,7 @@ import isVersionString from './utils/isVersionString';
  */
 export function checkForCompiler(
   compilerName: string,
-): Promise<{ compiler: string, version: string }> {
+): Promise<{ compiler: string; version: string }> {
   return new Promise((resolve, reject) => {
     childProcess.exec(`${compilerName} --version`, (error, stdout) => {
       if (error) {
