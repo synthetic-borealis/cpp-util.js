@@ -6,4 +6,9 @@ export default {
     '^.+\\.ts?$': 'ts-jest',
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  coverageReporters: [
+    'json',
+    'html',
+    'cobertura'
+  ]
 };
