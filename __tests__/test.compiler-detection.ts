@@ -1,17 +1,17 @@
-const {
+import {
   CompilerNotFoundError,
   checkForCompiler,
   checkForGcc,
   checkForGPlus,
   checkForClang,
   checkForClangPlus,
-} = require('../lib');
+} from '../src';
 
 describe('Compiler detection', () => {
-  it(
-    'Throws CompilerNotFoundError when a specified compiler cannot be found',
-    () => expect(checkForCompiler('lol')).rejects.toBeInstanceOf(CompilerNotFoundError),
-  );
+  it('Throws CompilerNotFoundError when a specified compiler cannot be found', () => {
+    const falseCompiler = 'lol';
+    return expect(checkForCompiler(falseCompiler)).rejects.toBeInstanceOf(CompilerNotFoundError);
+  });
   it('Detects gcc', () => expect(checkForGcc()).resolves.toBeDefined());
   it('Detects g++', () => expect(checkForGPlus()).resolves.toBeDefined());
   it('Detects clang', () => expect(checkForClang()).resolves.toBeDefined());

@@ -45,67 +45,52 @@ parameter to indicate whether you want the output to be linked or not (by defaul
 
 ### Example 1
 
-```javascript
-const cppUtils = require('cpp-utils');
-const fs = require('fs/promises');
-const process = require('process');
+```typescript
+import {
+  CompilerNotFoundError,
+  checkForCompiler,
+  checkForGcc,
+  checkForGPlus,
+  checkForClang,
+  checkForClangPlus,
+} from 'cpp-utils';
 
-describe('Compiler detection tests', () => {
-  describe('detectAllCompilers', () => {
-    it('Detects compilers', () => {
-      return expect(cppUtils.detectAllCompilers()).resolves.toBeDefined();
-    });
+describe('Compiler detection', () => {
+  it('Throws CompilerNotFoundError when a specified compiler cannot be found', () => {
+    const falseCompiler = 'lol';
+    return expect(checkForCompiler(falseCompiler)).rejects.toBeInstanceOf(CompilerNotFoundError);
   });
-
-  describe('checkForCompiler', () => {
-    it('Returns rejected promise when failing', () => {
-      return expect(cppUtils.checkForCompiler('lmfao')).rejects.toBeDefined();
-    });
-    it('Detects gcc', () => {
-      return expect(cppUtils.checkForGcc()).resolves.toBeDefined();
-    });
-    it('Detects clang', () => {
-      return expect(cppUtils.checkForClang()).resolves.toBeDefined();
-    });
-  });
+  it('Detects gcc', () => expect(checkForGcc()).resolves.toBeDefined());
+  it('Detects g++', () => expect(checkForGPlus()).resolves.toBeDefined());
+  it('Detects clang', () => expect(checkForClang()).resolves.toBeDefined());
+  it('Detects clang++', () => expect(checkForClangPlus()).resolves.toBeDefined());
 });
+```
 
-describe('Compilation tests', () => {
-  const exeExtension = process.platform === 'win32' ? '.exe' : '';
-  const testCodeC = '#include <stdio.h>\n' +
-    '\n' +
-    'int main()\n' +
-    '{\n' +
-    '    printf("Hello World!\\n");\n' +
-    '    return 0;\n' +
-    '}\n';
-  const testCodeCPP = '#include <iostream>\n' +
-    '\n' +
-    'int main()\n' +
-    '{\n' +
-    '    std::cout << "Hello World!\\n";\n' +
-    '    return 0;\n' +
-    '}\n';
+### Example 2
 
-  beforeAll(() => {
-    return Promise.all([fs.writeFile('test.c', testCodeC), fs.writeFile('test.cpp', testCodeCPP)]);
-  });
+```javascript
+const fs = require('fs/promises');
+const {
+  compileWithGcc,
+  compileWithGPlus,
+  compileWithClang,
+  compileWithClangPlus,
+} = require('cpp-utils');
 
-  test('C code compiles', () => {
-    return expect(cppUtils.compileWithGcc('test.c', `testC${exeExtension}`, true)).resolves.toBeDefined();
-  });
+const sourceFile = 'hello.c';
+const exeExtension = process.platform === 'win32' ? '.exe' : '';
+const exeFile = `hello${exeExtension}`;
 
-  test('C++ code compiles', () => {
-    return expect(cppUtils.compileWithGPlus('test.cpp', `testCPP${exeExtension}`, true)).resolves.toBeDefined();
-  });
-
-  afterAll(() => {
-    return Promise.all([
-      fs.unlink('test.c'),
-      fs.unlink('test.cpp'),
-      fs.unlink(`testC${exeExtension}`),
-      fs.unlink(`testCPP${exeExtension}`),
-    ]);
-  });
+describe('Compilation', () => {
+  afterEach(() => fs.unlink(exeFile));
+  test('With gcc', () => expect(compileWithGcc(sourceFile, exeFile))
+    .resolves.toBeDefined());
+  test('With g++', () => expect(compileWithGPlus(sourceFile, exeFile))
+    .resolves.toBeDefined());
+  test('With clang', () => expect(compileWithClang(sourceFile, exeFile))
+    .resolves.toBeDefined());
+  test('With clang++', () => expect(compileWithClangPlus(sourceFile, exeFile))
+    .resolves.toBeDefined());
 });
 ```

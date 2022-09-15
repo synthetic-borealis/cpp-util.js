@@ -1,174 +1,275 @@
-## Classes
+cpp-utils
 
-<dl>
-<dt><a href="#CompilationFailedError">CompilationFailedError</a></dt>
-<dd></dd>
-<dt><a href="#CompilerNotFoundError">CompilerNotFoundError</a></dt>
-<dd></dd>
-</dl>
+# cpp-utils
 
-## Functions
+## Table of contents
 
-<dl>
-<dt><a href="#compileWith">compileWith(compilerName, inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;{inputFile: string}&gt;</code></dt>
-<dd><p>Compiles C/C++ source.</p>
-</dd>
-<dt><a href="#compileWithGcc">compileWithGcc(inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;inputFile&gt;</code></dt>
-<dd><p>Compiles C/C++ source using gcc.</p>
-</dd>
-<dt><a href="#compileWithGPlus">compileWithGPlus(inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;inputFile&gt;</code></dt>
-<dd><p>Compiles C/C++ source using g++.</p>
-</dd>
-<dt><a href="#compileWithClang">compileWithClang(inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;inputFile&gt;</code></dt>
-<dd><p>Compiles C/C++ source using clang.</p>
-</dd>
-<dt><a href="#compileWithClangPlus">compileWithClangPlus(inputFile, outputFile, link)</a> ⇒ <code>Promise.&lt;inputFile&gt;</code></dt>
-<dd><p>Compiles C/C++ source using clang++.</p>
-</dd>
-<dt><a href="#checkForCompiler">checkForCompiler(compilerName)</a> ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code></dt>
-<dd><p>Checks whether a compiler is in the system path (i.e. PATH).</p>
-</dd>
-<dt><a href="#checkForGcc">checkForGcc()</a> ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code></dt>
-<dd><p>Checks whether gcc is in the system path (i.e. PATH).</p>
-</dd>
-<dt><a href="#checkForGPlus">checkForGPlus()</a> ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code></dt>
-<dd><p>Checks whether g++ is in the system path (i.e. PATH).</p>
-</dd>
-<dt><a href="#checkForClang">checkForClang()</a> ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code></dt>
-<dd><p>Checks whether clang is in the system path (i.e. PATH).</p>
-</dd>
-<dt><a href="#checkForClangPlus">checkForClangPlus()</a> ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code></dt>
-<dd><p>Checks whether clang++ is in the system path (i.e. PATH).</p>
-</dd>
-</dl>
+### Classes
 
-<a name="CompilationFailedError"></a>
+- [CompilationFailedError](classes/CompilationFailedError.md)
+- [CompilerNotFoundError](classes/CompilerNotFoundError.md)
 
-## CompilationFailedError
-**Kind**: global class  
-<a name="new_CompilationFailedError_new"></a>
+### Compilation Functions
 
-### new CompilationFailedError(compiler, file)
-CompilationFailed Error constructor
+- [compileWith](API.md#compilewith)
+- [compileWithClang](API.md#compilewithclang)
+- [compileWithClangPlus](API.md#compilewithclangplus)
+- [compileWithGPlus](API.md#compilewithgplus)
+- [compileWithGcc](API.md#compilewithgcc)
 
+### Compiler Detection Functions
 
-| Param | Type | Description |
-| --- | --- | --- |
-| compiler | <code>string</code> | The name of the compiler used. |
-| file | <code>string</code> | The source file in which the error occurred. |
+- [checkForClang](API.md#checkforclang)
+- [checkForClangPlus](API.md#checkforclangplus)
+- [checkForCompiler](API.md#checkforcompiler)
+- [checkForGPlus](API.md#checkforgplus)
+- [checkForGcc](API.md#checkforgcc)
 
-<a name="CompilerNotFoundError"></a>
+## Compilation Functions
 
-## CompilerNotFoundError
-**Kind**: global class  
-<a name="new_CompilerNotFoundError_new"></a>
+### compileWith
 
-### new CompilerNotFoundError(compilerName)
-CompilerNotFound Error constructor
+▸ **compileWith**(`compilerName`, `inputFile`, `outputFile`, `link`): `Promise`<{ `inputFile`: `string`  }\>
 
-
-| Param | Type | Description |
-| --- | --- | --- |
-| compilerName | <code>string</code> | The name of the compiler that wasn't found. |
-
-<a name="compileWith"></a>
-
-## compileWith(compilerName, inputFile, outputFile, link) ⇒ <code>Promise.&lt;{inputFile: string}&gt;</code>
 Compiles C/C++ source.
 
-**Kind**: global function  
+**`Throws`**
 
-| Param | Type | Description |
-| --- | --- | --- |
-| compilerName | <code>string</code> | Compiler to use. |
-| inputFile | <code>string</code> | Source file to compile. |
-| outputFile | <code>string</code> | Output file name. |
-| link | <code>boolean</code> | Should result be linked. |
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
 
-<a name="compileWithGcc"></a>
+#### Parameters
 
-## compileWithGcc(inputFile, outputFile, link) ⇒ <code>Promise.&lt;inputFile&gt;</code>
-Compiles C/C++ source using gcc.
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `compilerName` | `string` | Compiler to use. |
+| `inputFile` | `string` | Source file to compile. |
+| `outputFile` | `string` | Output file name. |
+| `link` | `boolean` | Should result be linked. |
 
-**Kind**: global function  
+#### Returns
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| inputFile | <code>string</code> |  | Source file to compile. |
-| outputFile | <code>string</code> |  | Output file name. |
-| link | <code>boolean</code> | <code>true</code> | Should result be linked. |
+`Promise`<{ `inputFile`: `string`  }\>
 
-<a name="compileWithGPlus"></a>
+#### Defined in
 
-## compileWithGPlus(inputFile, outputFile, link) ⇒ <code>Promise.&lt;inputFile&gt;</code>
-Compiles C/C++ source using g++.
+[src/compilation.ts:14](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L14)
 
-**Kind**: global function  
+___
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| inputFile | <code>string</code> |  | Source file to compile. |
-| outputFile | <code>string</code> |  | Output file name. |
-| link | <code>boolean</code> | <code>true</code> | Should result be linked. |
+### compileWithClang
 
-<a name="compileWithClang"></a>
+▸ **compileWithClang**(`inputFile`, `outputFile`, `link?`): `Promise`<{ `inputFile`: `string`  }\>
 
-## compileWithClang(inputFile, outputFile, link) ⇒ <code>Promise.&lt;inputFile&gt;</code>
 Compiles C/C++ source using clang.
 
-**Kind**: global function  
+**`Throws`**
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| inputFile | <code>string</code> |  | Source file to compile. |
-| outputFile | <code>string</code> |  | Output file name. |
-| link | <code>boolean</code> | <code>true</code> | Should result be linked. |
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
 
-<a name="compileWithClangPlus"></a>
+#### Parameters
 
-## compileWithClangPlus(inputFile, outputFile, link) ⇒ <code>Promise.&lt;inputFile&gt;</code>
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `inputFile` | `string` | `undefined` | Source file to compile. |
+| `outputFile` | `string` | `undefined` | Output file name. |
+| `link` | `boolean` | `true` | Should result be linked. |
+
+#### Returns
+
+`Promise`<{ `inputFile`: `string`  }\>
+
+#### Defined in
+
+[src/compilation.ts:67](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L67)
+
+___
+
+### compileWithClangPlus
+
+▸ **compileWithClangPlus**(`inputFile`, `outputFile`, `link?`): `Promise`<{ `inputFile`: `string`  }\>
+
 Compiles C/C++ source using clang++.
 
-**Kind**: global function  
+**`Throws`**
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| inputFile | <code>string</code> |  | Source file to compile. |
-| outputFile | <code>string</code> |  | Output file name. |
-| link | <code>boolean</code> | <code>true</code> | Should result be linked. |
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
 
-<a name="checkForCompiler"></a>
+#### Parameters
 
-## checkForCompiler(compilerName) ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code>
-Checks whether a compiler is in the system path (i.e. PATH).
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `inputFile` | `string` | `undefined` | Source file to compile. |
+| `outputFile` | `string` | `undefined` | Output file name. |
+| `link` | `boolean` | `true` | Should result be linked. |
 
-**Kind**: global function  
+#### Returns
 
-| Param | Type | Description |
-| --- | --- | --- |
-| compilerName | <code>string</code> | The compiler to look for. |
+`Promise`<{ `inputFile`: `string`  }\>
 
-<a name="checkForGcc"></a>
+#### Defined in
 
-## checkForGcc() ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code>
-Checks whether gcc is in the system path (i.e. PATH).
+[src/compilation.ts:80](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L80)
 
-**Kind**: global function  
-<a name="checkForGPlus"></a>
+___
 
-## checkForGPlus() ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code>
-Checks whether g++ is in the system path (i.e. PATH).
+### compileWithGPlus
 
-**Kind**: global function  
-<a name="checkForClang"></a>
+▸ **compileWithGPlus**(`inputFile`, `outputFile`, `link?`): `Promise`<{ `inputFile`: `string`  }\>
 
-## checkForClang() ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code>
+Compiles C/C++ source using g++.
+
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `inputFile` | `string` | `undefined` | Source file to compile. |
+| `outputFile` | `string` | `undefined` | Output file name. |
+| `link` | `boolean` | `true` | Should result be linked. |
+
+#### Returns
+
+`Promise`<{ `inputFile`: `string`  }\>
+
+#### Defined in
+
+[src/compilation.ts:54](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L54)
+
+___
+
+### compileWithGcc
+
+▸ **compileWithGcc**(`inputFile`, `outputFile`, `link?`): `Promise`<{ `inputFile`: `string`  }\>
+
+Compiles C/C++ source using gcc.
+
+**`Throws`**
+
+[CompilationFailedError](classes/CompilationFailedError.md) if compilation fails.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `inputFile` | `string` | `undefined` | Source file to compile. |
+| `outputFile` | `string` | `undefined` | Output file name. |
+| `link` | `boolean` | `true` | Should result be linked. |
+
+#### Returns
+
+`Promise`<{ `inputFile`: `string`  }\>
+
+#### Defined in
+
+[src/compilation.ts:41](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilation.ts#L41)
+
+___
+
+## Compiler Detection Functions
+
+### checkForClang
+
+▸ **checkForClang**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
 Checks whether clang is in the system path (i.e. PATH).
 
-**Kind**: global function  
-<a name="checkForClangPlus"></a>
+**`Throws`**
 
-## checkForClangPlus() ⇒ <code>Promise.&lt;{compiler: string, version: string}&gt;</code>
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if clang can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:57](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L57)
+
+___
+
+### checkForClangPlus
+
+▸ **checkForClangPlus**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
 Checks whether clang++ is in the system path (i.e. PATH).
 
-**Kind**: global function  
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if clang++ can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:67](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L67)
+
+___
+
+### checkForCompiler
+
+▸ **checkForCompiler**(`compilerName`): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether a compiler is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if specified compiler can't be found.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `compilerName` | `string` | The compiler to look for. |
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:12](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L12)
+
+___
+
+### checkForGPlus
+
+▸ **checkForGPlus**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether g++ is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if g++ can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:47](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L47)
+
+___
+
+### checkForGcc
+
+▸ **checkForGcc**(): `Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+Checks whether gcc is in the system path (i.e. PATH).
+
+**`Throws`**
+
+[CompilerNotFoundError](classes/CompilerNotFoundError.md) if gcc can't be found in the system path.
+
+#### Returns
+
+`Promise`<{ `compiler`: `string` ; `version`: `string`  }\>
+
+#### Defined in
+
+[src/compilerDetection.ts:37](https://github.com/synthetic-borealis/cpp-utils.js/blob/3d07fd4/src/compilerDetection.ts#L37)
