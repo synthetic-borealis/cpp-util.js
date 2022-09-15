@@ -15,8 +15,9 @@ export function checkForCompiler(
       if (error) {
         reject(new CompilerNotFoundError(compilerName));
       }
-      const outputLines = stdout.replaceAll('\r', '').trim().split('\n');
-      const version = outputLines[0].split(' ').pop().split('-')[0];
+      const outputLines = stdout.replace(/\r/g, '').trim().split('\n');
+      const splitFirstLine = outputLines[0].split(' ');
+      const version = splitFirstLine[splitFirstLine.length - 1].split('-')[0];
       if (isVersionString(version)) {
         resolve({ compiler: compilerName, version });
       }
