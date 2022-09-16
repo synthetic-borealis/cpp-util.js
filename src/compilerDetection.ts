@@ -1,4 +1,4 @@
-import * as childProcess from 'child_process';
+import childProcess from 'child_process';
 import CompilerNotFoundError from './errors/compilerNotFound';
 import isVersionString from './utils/isVersionString';
 

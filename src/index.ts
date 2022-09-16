@@ -1,18 +1,18 @@
 import CompilerNotFoundError from './errors/compilerNotFound';
 import CompilationFailedError from './errors/compilationFailed';
 import {
+  checkForClang,
+  checkForClangPlus,
   checkForCompiler,
   checkForGcc,
   checkForGPlus,
-  checkForClang,
-  checkForClangPlus,
 } from './compilerDetection';
 import {
   compileWith,
-  compileWithGcc,
-  compileWithGPlus,
   compileWithClang,
   compileWithClangPlus,
+  compileWithGcc,
+  compileWithGPlus,
 } from './compilation';
 
 export {
