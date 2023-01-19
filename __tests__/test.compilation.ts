@@ -1,10 +1,10 @@
-import * as fs from 'fs/promises';
+import fs from 'fs/promises';
 import {
   CompilationFailedError,
-  compileWithGcc,
-  compileWithGPlus,
   compileWithClang,
   compileWithClangPlus,
+  compileWithGcc,
+  compileWithGPlus,
 } from '../src';
 
 const helloFile = 'assets/hello.c';
@@ -47,23 +47,23 @@ describe('Compilation', () => {
     afterEach(() => fs.unlink(objectFile));
     test(
       'With gcc',
-      () => expect(compileWithGcc(helloFile, objectFile, false)).resolves.toBeDefined(),
-      5000, // prevent prettier from messing this code up (5000 is the default timeout)
+      () => expect(compileWithGcc(helloFile, objectFile, false))
+        .resolves.toBeDefined(),
     );
     test(
       'With g++',
-      () => expect(compileWithGPlus(helloFile, objectFile, false)).resolves.toBeDefined(),
-      5000, // prevent prettier from messing this code up (5000 is the default timeout)
+      () => expect(compileWithGPlus(helloFile, objectFile, false))
+        .resolves.toBeDefined(),
     );
     test(
       'With clang',
-      () => expect(compileWithClang(helloFile, objectFile, false)).resolves.toBeDefined(),
-      5000, // prevent prettier from messing this code up (5000 is the default timeout)
+      () => expect(compileWithClang(helloFile, objectFile, false))
+        .resolves.toBeDefined(),
     );
     test(
       'With clang++',
-      () => expect(compileWithClangPlus(helloFile, objectFile, false)).resolves.toBeDefined(),
-      5000, // prevent prettier from messing this code up (5000 is the default timeout)
+      () => expect(compileWithClangPlus(helloFile, objectFile, false))
+        .resolves.toBeDefined(),
     );
   });
 });

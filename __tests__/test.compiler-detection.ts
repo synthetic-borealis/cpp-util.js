@@ -1,10 +1,10 @@
 import {
-  CompilerNotFoundError,
+  checkForClang,
+  checkForClangPlus,
   checkForCompiler,
   checkForGcc,
   checkForGPlus,
-  checkForClang,
-  checkForClangPlus,
+  CompilerNotFoundError,
 } from '../src';
 
 describe('Compiler detection', () => {
