@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node-version: [v16.x, v18.x]
+        node-version: [v18.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js ${{ matrix.node-version }} with Yarn
-        uses: mskelton/setup-yarn@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-#      - name: Install dependencies
-#        run: yarn install --immutable
-      - name: Run tests
-        run: yarn test
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
