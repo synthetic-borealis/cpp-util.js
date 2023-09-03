@@ -30,10 +30,10 @@
     "docs": "typedoc",
     "test": "jest",
     "coverage": "jest --coverage",
-    "prepack": "yarn build",
-    "postpack": "yarn clean",
-    "prepublish": "in-publish && yarn build || not-in-publish",
-    "postpublish": "yarn clean"
+    "prepack": "npm run clean && npm run build",
+    "postpack": "npm run clean",
+    "prepublish": "in-publish && npm run clean && npm run build || not-in-publish",
+    "postpublish": "npm run clean"
   },
   "devDependencies": {
     "@types/jest": "^29.5.4",
