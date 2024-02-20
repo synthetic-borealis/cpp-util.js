@@ -1,10 +1,11 @@
 import childProcess from 'child_process';
 import CompilationFailedError from './errors/compilationFailed';
+import InvalidCompilerNameError from './errors/invalidCompilerName';
 
 /**
  * Compiles C/C++ source.
  * @category Compilation
- * @param {string} compilerName Compiler to use.
+ * @param {string} compilerExecutableName Compiler to use.
  * @param {string} inputFile Source file to compile.
  * @param {string} outputFile Output file name.
  * @param {boolean} link Should result be linked.
@@ -12,17 +13,21 @@ import CompilationFailedError from './errors/compilationFailed';
  * @throws {@link CompilationFailedError} if compilation fails.
  */
 export function compileWith(
-  compilerName: string,
+  compilerExecutableName: string,
   inputFile: string,
   outputFile: string,
   link: boolean,
 ): Promise<{ inputFile: string }> {
-  const command = `${compilerName} ${inputFile} -o ${outputFile}${link ? '' : ' -c'}`;
+  const command = `${compilerExecutableName} ${inputFile} -o ${outputFile}${link ? '' : ' -c'}`;
+  const validExecutableNameRegex: RegExp = /^[\w\-._+]+$/;
 
   return new Promise((resolve, reject) => {
+    if (!validExecutableNameRegex.test(compilerExecutableName)) {
+      reject(new InvalidCompilerNameError());
+    }
     childProcess.exec(command, (error) => {
       if (error) {
-        reject(new CompilationFailedError(compilerName, inputFile));
+        reject(new CompilationFailedError(compilerExecutableName, inputFile));
       }
       resolve({ inputFile });
     });

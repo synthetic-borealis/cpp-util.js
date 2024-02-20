@@ -1,5 +1,7 @@
 import CompilerNotFoundError from './errors/compilerNotFound';
 import CompilationFailedError from './errors/compilationFailed';
+import InvalidCompilerNameError from './errors/invalidCompilerName';
+
 import {
   checkForClang,
   checkForClangPlus,
@@ -18,6 +20,7 @@ import {
 export {
   CompilerNotFoundError,
   CompilationFailedError,
+  InvalidCompilerNameError,
   checkForCompiler,
   checkForGcc,
   checkForGPlus,
