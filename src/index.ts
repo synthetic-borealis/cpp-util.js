@@ -5,12 +5,10 @@ import InvalidCompilerNameError from './errors/invalidCompilerName';
 import {
   checkForClang,
   checkForClangPlus,
-  checkForCompiler,
   checkForGcc,
   checkForGPlus,
 } from './compilerDetection';
 import {
-  compileWith,
   compileWithClang,
   compileWithClangPlus,
   compileWithGcc,
